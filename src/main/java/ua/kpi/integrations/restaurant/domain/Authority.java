@@ -12,6 +12,8 @@ import javax.persistence.Id;
 @Entity
 public class Authority implements GrantedAuthority {
 
+    public static final String USER = "ROLE_USER";
+
     @Id
     private String authority;
 
