@@ -3,6 +3,7 @@ package ua.kpi.integrations.restaurant.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ua.kpi.integrations.restaurant.domain.Authority;
 import ua.kpi.integrations.restaurant.domain.User;
 import ua.kpi.integrations.restaurant.dto.RegistrationUserDto;
@@ -29,6 +30,7 @@ public class SimpleUserService implements UserService {
         return userRepository.findUserByUsername(username);
     }
 
+    @Transactional
     @Override
     public User registerUser(RegistrationUserDto userDto) {
         User user = User.fromRegistrationUserDto(userDto);
