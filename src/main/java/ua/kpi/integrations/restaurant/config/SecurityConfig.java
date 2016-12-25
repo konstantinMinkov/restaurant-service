@@ -41,6 +41,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
             .httpBasic()
                 .and()
+            .csrf()
+                .disable()
             .logout()
                 .logoutUrl("/api/logout")
                 .logoutSuccessUrl("/")
