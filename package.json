@@ -20,6 +20,5 @@
     "gulp-run-sequence": "^0.3.2",
     "gulp-concat-vendor": "^0.0.4",
     "gulp-angular-templatecache": "^2.0.0"
-//    "semantic-ui": "^2.2.6"
   }
 }
