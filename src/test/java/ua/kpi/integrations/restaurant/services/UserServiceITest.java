@@ -22,7 +22,7 @@ import static org.junit.Assert.assertThat;
 @Rollback
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {ApplicationConfig.class})
-public class UserServiceTestIT extends AbstractTransactionalJUnit4SpringContextTests {
+public class UserServiceITest extends AbstractTransactionalJUnit4SpringContextTests {
 
     @Autowired
     private UserService userService;
