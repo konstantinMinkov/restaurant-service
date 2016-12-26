@@ -1,8 +1,10 @@
 package ua.kpi.integrations.restaurant.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import ua.kpi.integrations.restaurant.dto.RegistrationUserDto;
 
@@ -11,14 +13,15 @@ import java.util.Set;
 
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Accessors(chain = true)
 @EqualsAndHashCode(exclude = "id")
 @Entity
 public class User {
 
     @TableGenerator(name = "user_generator")
-    @Id
-    @GeneratedValue(generator = "user_generator")
+    @Id @GeneratedValue(generator = "user_generator")
     private Long id;
 
     private String username;
