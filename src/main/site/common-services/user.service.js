@@ -17,8 +17,13 @@ angular.module('restaurant-service').factory('User', [
                 return Storage.exists('username');
             },
             logout: function () {
-                Storage.remove('username');
-                Redirect.to('/');
+                Http.get('/api/auth/logout').then(function (response) {
+                    Storage.remove('username');
+                    Redirect.to('/');
+                });
+            },
+            getUsername: function () {
+                return Storage.get('username');
             }
         }
     }
