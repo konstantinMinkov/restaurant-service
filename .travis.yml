@@ -8,6 +8,9 @@ language: java
 jdk:
   - oraclejdk8
 
-script:
+before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS restaurant_service;'
-  - mvn clean test -P frontend-build
+  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('1111') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
+
+script:
+  - mvn clean test
