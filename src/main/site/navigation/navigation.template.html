@@ -1,0 +1,30 @@
+<div class="ui top attached menu">
+    <a class="item" href="/#/">
+        <img src="resources/images/restaurant-512.png">
+    </a>
+    <div class="item">
+        <div class="ui icon input">
+            <input type="text" placeholder="Search...">
+            <i class="search icon"></i>
+        </div>
+    </div>
+    <div ng-if=" !User.isAuthenticated()" class="right menu">
+        <div class="item">
+            <button ng-click="Redirect.to('/signup')" class="ui primary button">
+                Sign up
+            </button>
+        </div>
+        <div class="item">
+            <button ng-click="Redirect.to('/login')" class="ui button">
+                Log in
+            </button>
+        </div>
+    </div>
+    <div ng-if="User.isAuthenticated()" class="right menu">
+        <div class="item">
+            <button ng-click="User.logout()" class="ui button">
+                Log out
+            </button>
+        </div>
+    </div>
+</div>
