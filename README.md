@@ -1,5 +1,31 @@
-# restaurant-service 
+### Required tools
 
-Link to Trello board: https://trello.com/b/BHyT50Ld
+* JDK 1.8
+* maven 3.3.9
+* MySQL database
 
-API description: https://app.apiary.io/restaurantservice1
+### Database creation
+
+Run `sql/migration.sql` from the root folder of the project.
+
+### Run project
+
+Run `mvn clean jetty:run -P frontend-build` from the command line.
+
+### Build Docker image
+
+Make build
+
+`mvn clean install -P frontend-build`
+
+Build a Docker image with command
+
+`docker build -t restaurant .`
+
+Then run it simply typing
+
+`docker run -p 8080:8080 -it restaurant`
+
+
+
+
