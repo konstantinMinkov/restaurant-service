@@ -1,0 +1,52 @@
+<div class="ui container" style="padding-top: 100px">
+    <div class="ui one column centered grid">
+        <div class="two column centered row">
+            <div class="column">
+                <a href="#/">
+                    <img src="resources/images/restaurant-512.png"
+                         class="ui centered tiny image">
+                </a>
+                <div style="text-align: center">
+                    <h1>
+                        Register
+                    </h1>
+                    <h3>
+                        To make your first order
+                    </h3>
+                </div>
+                <div class="ui centered message">
+                    <div class="ui form">
+                        <div class="field">
+                            <div class="ui large fluid input">
+                                <input type="text" name="login" ng-model="user.login" placeholder="Login">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui large fluid input">
+                                <input type="text" name="email" ng-model="user.email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui large fluid input">
+                                <input type="password" name="password" ng-model="user.password" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui large fluid input">
+                                <input type="password" name="passwordConfirmation" ng-model="passwordConfirmation"
+                                       placeholder="Confirm password">
+                            </div>
+                        </div>
+                        <button class="ui fluid medium primary submit button" ng-click="User.create(user)">Sign up</button>
+                    </div>
+                </div>
+                <h3 style="text-align: center">
+                    Have an account?
+                    <a href="#/login">
+                        Log in<i class="sign in icon"></i>
+                    </a>
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>

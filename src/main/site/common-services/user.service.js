@@ -1,20 +1,29 @@
 angular.module('restaurant-service').factory('User', [
-    '$http', 'Token',
-    function($http, Token) {
+    'Http', 'Storage', 'Redirect',
+    function(Http, Storage, Redirect) {
         return {
             create: function (user) {
-                return $http.post('/api/users/new', user);
+                return Http.post('/api/users/new', user).then(function (response) {
+                    Redirect.to('/');
+                });
             },
-            login: function (login, password) {
-                return $http.post('/api/auth/login', {
-                    login: login,
-                    password: password
-                }).then(function (responce) {
-                    Token.save(responce.data.token);
-                })
+            login: function (user) {
+                return Http.post('/api/auth/login', user).then(function (response) {
+                    Storage.save('username', user.login);
+                    Redirect.to('/');
+                });
             },
             isAuthenticated: function () {
-                return Token.exists();
+                return Storage.exists('username');
+            },
+            logout: function () {
+                Http.get('/api/auth/logout').then(function (response) {
+                    Storage.remove('username');
+                    Redirect.to('/');
+                });
+            },
+            getUsername: function () {
+                return Storage.get('username');
             }
         }
     }
