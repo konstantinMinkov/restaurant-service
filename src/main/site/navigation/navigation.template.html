@@ -22,6 +22,12 @@
     </div>
     <div ng-if="User.isAuthenticated()" class="right menu">
         <div class="item">
+            Hello, {{User.getUsername()}}
+        </div>
+        <a ng-if=" !Cart.isEmpty()" class="item">
+            <i class="cart icon"></i> Cart
+        </a>
+        <div class="item">
             <button ng-click="User.logout()" class="ui button">
                 Log out
             </button>
