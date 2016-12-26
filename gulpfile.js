@@ -24,8 +24,6 @@ gulp.task('templates', function () {
         .pipe(gulp.dest('src/main/webapp/resources'))
 });
 
-gulp.task('semantic-ui', buildSemantic);
-
 gulp.task('js', function() {
     gulp.src([
         'src/main/site/app.module.js',
@@ -48,6 +46,7 @@ gulp.task('vendor-js', function() {
         .pipe(gulp.dest('./src/main/webapp/resources'));
 });
 
+gulp.task('semantic-ui', buildSemantic);
 gulp.task('dev', runSequence('templates', 'vendor-js', 'js'));
 
 ///todo !
