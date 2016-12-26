@@ -16,6 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @ComponentScan(basePackages = {"ua.kpi.integrations.restaurant.web"})
+@Import(ApplicationConfig.class)
 @EnableWebMvc
 @EnableSwagger2
 public class WebConfig extends WebMvcConfigurerAdapter {

@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @Import(RepositoriesConfig.class)
-@ComponentScan(basePackages = {"ua.kpi.integrations.restaurant.domain"})
+@ComponentScan(basePackages = {"ua.kpi.integrations.restaurant.domain",
+        "ua.kpi.integrations.restaurant.services"})
 public class ApplicationConfig {
 }
