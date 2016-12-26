@@ -1,7 +1,13 @@
+sudo: required
+
+services:
+  - mysql
+
 language: java
 
 jdk:
   - oraclejdk8
 
 script:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS restaurant_service;'
   - mvn clean test -P frontend-build
