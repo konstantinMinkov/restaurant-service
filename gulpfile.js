@@ -8,7 +8,6 @@ var rename = require('gulp-rename');
 var runSequence = require('gulp-run-sequence');
 var concatVendor = require('gulp-concat-vendor');
 var templateCache = require('gulp-angular-templatecache');
-var buildSemantic = require('./semantic/tasks/build');
 
 gulp.task('templates', function () {
     gulp.src('src/main/site/*/*.html')
@@ -46,7 +45,6 @@ gulp.task('vendor-js', function() {
         .pipe(gulp.dest('./src/main/webapp/resources'));
 });
 
-gulp.task('semantic-ui', buildSemantic);
 gulp.task('dev', runSequence('templates', 'vendor-js', 'js'));
 
 ///todo !
