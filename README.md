@@ -1,3 +1,7 @@
+### Disclaimer
+
+To see all recent changes you should clone from the __dev__ branch! __master__ branch is kept clean from the source code.
+
 ### Required tools
 
 * JDK 1.8
