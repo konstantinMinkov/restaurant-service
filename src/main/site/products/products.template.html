@@ -1,0 +1,21 @@
+<link rel="stylesheet" type="text/css" href="../../webapp/resources/semantic/semantic.css">
+<div class="ui container" style="margin-top: 50px">
+    <div class="ui doubling four column grid">
+        <div ng-repeat="product in products" class="column">
+            <div class="ui fluid card">
+                <div class="image">
+                    <img ng-src="{{product.imageUrl}}">
+                </div>
+                <div class="content">
+                    <a class="header" ng-href="#products/{{product.id}}">
+                        {{product.name}}
+                    </a>
+                </div>
+                <div class="ui bottom attached button" ng-click="Cart.addProduct(product.id)">
+                    <i class="in cart icon"></i>
+                    Add to cart
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
