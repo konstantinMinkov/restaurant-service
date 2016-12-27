@@ -3,8 +3,7 @@ angular.module('restaurant-service').factory('Products', [
     function(Http) {
         return {
             loadAll: function () {
-                var promise = Http.get('/api/products');
-                return promise;
+                return Http.get('/api/products');
             }
         }
     }
