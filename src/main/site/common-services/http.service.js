@@ -4,18 +4,18 @@ angular.module('restaurant-service').factory('Http', [
         return {
             get: function (url) {
                 var defered = $q.defer();
-                var backoff = new Backoff(3000, 24000);
+                var backoff = new Backoff(2000, 35000);
                 function doGet(url) {
                     $http.get(url)
                         .then(function (body) {
                             defered.resolve(body);
                         })
                         .catch(function (body) {
-                            console.log(body);
-                            console.log(new Date().getSeconds());
                             if (body.status < 100) {
                                 setTimeout(
-                                    doGet(url), backoff.getNext()
+                                    function () {
+                                        doPost(url, data);
+                                    }, backoff.getDelay()
                                 );
                             } else {
                                 defered.reject(body);
@@ -27,18 +27,20 @@ angular.module('restaurant-service').factory('Http', [
             },
             post: function (url, data) {
                 var defered = $q.defer();
-                var backoff = new Backoff(3000, 24000);
+                var backoff = new Backoff(2000, 35000);
                 function doPost(url, data) {
                     $http.post(url, data)
                          .then(function (body) {
                              defered.resolve(body);
                          })
                          .catch(function (body) {
-                             console.log(body);
-                             console.log(new Date().getSeconds());
                              if (body.status < 100) {
+                                 var delay = backoff.getDelay();
+                                 console.log(delay);
                                  setTimeout(
-                                     doPost(url, data), backoff.getNext()
+                                     function () {
+                                         doPost(url, data);
+                                     }, delay
                                  );
                              } else {
                                  defered.reject(body);
